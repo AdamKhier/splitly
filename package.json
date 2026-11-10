@@ -1,0 +1,11 @@
+{
+  "name": "splitly",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Splitly — track the spending, we'll handle the math.",
+  "scripts": {
+    "backend": "npm run dev --prefix backend",
+    "backend:test": "npm test --prefix backend",
+    "mobile": "npm start --prefix mobile"
+  }
+}

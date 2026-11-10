@@ -1,0 +1,86 @@
+Yes — I’ve read the entire document and I understand the product direction, core workflows, data model, UX philosophy, and especially the Z Fold 7 dual-form-factor requirement. 📱🔥
+
+A few things I’ve already mentally locked in:
+
+Core loop: Expense → Balance → Request → Payment → Settled
+Trips/groups are the central container.
+The app handles the math automatically — users should never need to think in accounting terms.
+Equal, exact, percentage splitting are core; custom splitting can come later.
+Individual + group balances, settlement history, debt simplification.
+Payment requests through in-app notifications + native sharing + email.
+Cover display: conventional one-handed mobile UI.
+Inner display: genuinely expanded two-column/tablet-style UI, not just a stretched phone layout.
+Fold/unfold must preserve navigation and selected state.
+AUD first, multi-currency architecture from the beginning.
+Offline expense entry is a planned capability.
+Privacy is based on minimum necessary financial visibility.
+The visual language should be friendly, modern, rounded and clear — not accounting software.
+Backend is intended to eventually support real users, authentication, synchronization, notifications, etc.
+The product's main promise is essentially: “Track the spending. We’ll handle the math.” 💸✨
+One thing I noticed
+
+The document jumps from section 32 → 38. So sections 33–37 appear to be missing. That's not necessarily a problem, but I wanted to flag it in case those sections were accidentally omitted.
+
+Questions I have before we build
+
+I only have a few important ones:
+
+Is “GroupSpend” or “Splitly” the final app name?
+The project is called Splitly, but the document repeatedly calls the product GroupSpend.
+For the first Expo Snack prototype, are we building only the frontend/UI, using mock/local data, or do you want us to start designing the real backend architecture immediately?
+Authentication: should the first prototype have a fake/demo logged-in user (e.g. Addz), or do you want actual account creation/login in the first version?
+Payments: when you say “payment,” do you mean recording that someone paid in the initial version, with actual payment-provider integration being a future feature?
+That's how I currently interpret it.
+Contacts: should phone-contact integration be part of the first prototype, or should we initially simulate it with search/email/invite-link UI?
+Debt simplification: should this be enabled by default for groups, with a toggle in settings, or should it initially just be demonstrated as a calculation?
+
+Other than those points, I don't see anything blocking us from starting. 🚀
+
+And importantly: I won't treat the document as “just a pretty UI.” The architecture needs to leave room for the actual expense → balance → settlement engine underneath it.
+
+1) Splitly
+2) Start backend immediately
+3) start with fake demo, then move to real later
+4) in the future, yes
+5) no I could just fill it out annually
+6)enabled by default with a toggle
+
+Perfect. 🔥 Locked in.
+
+✅ Decisions confirmed
+Area	Decision
+App name	Splitly
+Backend	Start building it immediately
+Authentication	Fake/demo account first → real authentication later
+Payments	Initially record settlements; actual payment processing later
+Contacts	No phone contacts integration for now
+Debt simplification	ON by default, user can toggle it OFF
+Primary test device	Samsung Galaxy Z Fold7
+Frontend	Expo / React Native
+Initial currency	AUD 🇦🇺
+
+One clarification from your #5: I'm interpreting “fill it out annually” as you'll manually enter/add people rather than having Splitly access the phone's contacts. So we'll use things like username, email, and invite links instead. 👍
+
+🧠 Development direction
+
+I'll treat the project as a real app from day one, not a disposable prototype.
+
+That means even while we're using fake/demo authentication, we'll structure things so we can later swap:
+
+Demo user
+→ Real authentication
+
+and:
+
+Local/mock data
+→ Real API + PostgreSQL
+
+without having to rebuild the entire UI.
+
+The most important piece we'll get right early is the expense/balance engine, because everything else depends on it:
+
+Expenses → Shares → Balances → Debt Simplification → Settlements → Payment Requests
+
+And we'll design the UI around the Fold7's two states from the beginning rather than bolting the inner-screen experience on later. 📱↔️📖
+
+I'm ready for the next step. 🚀
