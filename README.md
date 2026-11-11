@@ -49,7 +49,7 @@ One shared local database, no passwords. Tap past the auth screen, or use **Sett
 
 | Username | Display name | Notes |
 | --- | --- | --- |
-| `addz` | Andrew | Default on first open |
+| `addz` | Adam | Default on first open |
 | `maya` | Maya | |
 | `leo` | Leo | Starts the demo owing Andrew money |
 | `sam` | Sam | |
